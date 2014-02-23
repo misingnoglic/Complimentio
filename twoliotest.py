@@ -7,7 +7,12 @@ def messageparse(body):
     else: return [body]
 
 
-
+def sendmessage(client, tonumber, compliment):
+    message = client.messages.create(body=compliment,
+        to=tonumber,
+        from_="+16267747161",)
+    #media_url="http://www.example.com/hearts.png")
+    print message.sid
 
 
 
@@ -16,9 +21,9 @@ def messageparse(body):
 account_sid = "AC66feb8a0982d83f73782a94069212ed7"
 auth_token  = "34ddec2af3dad454914b40280328c820"
 client = TwilioRestClient(account_sid, auth_token)
- 
-message = client.messages.create(body="Testing Text :)",
-    to="+13233933245",
-    from_="+16267747161",)
+sendmessage(client, "3233933245", "Your smile smells nice")
+#message = client.messages.create(body="Testing Text :)",
+#    to="+13233933245",
+#    from_="+16267747161",)
     #media_url="http://www.example.com/hearts.png")
-print message.sid
+#print message.sid

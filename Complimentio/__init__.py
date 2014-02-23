@@ -19,7 +19,7 @@ def sendmessage(client, tonumber, compliment):
         to=tonumber,
         from_="+16267747161",)
     #media_url="http://www.example.com/hearts.png")
-    print message.sid
+    #print message.sid
 
  
 app = Flask(__name__)
@@ -27,7 +27,8 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
     """Respond to incoming calls with a simple text message."""
-    stuff = messageparse(request.args['Body'])
+    print(request.args['Body'])
+    stuff = messageparse(str(request.args['Body']))
     sendmessage(client, stuff[0], stuff[1])
     resp = twilio.twiml.Response()
     resp.message("Thank You, your message has been sent")#request.args['Body']

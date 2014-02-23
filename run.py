@@ -15,3 +15,8 @@ def hello_monkey():
  
 if __name__ == "__main__":
     app.run(debug=True)
+
+def messageparse(body):
+    if " " in body:
+        return [body[:body.index(" ")],body[body.index(" ")+1:]]
+    else: return [body]
